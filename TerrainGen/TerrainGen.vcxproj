@@ -68,11 +68,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GraphicObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GraphicObject.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="opengl.h" />
     <ClInclude Include="ShaderProgram.h" />

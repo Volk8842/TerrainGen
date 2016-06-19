@@ -1,4 +1,11 @@
 #include "MainWindow.h"
+#include "GraphicObject.h"
+
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
+		glfwSetWindowShouldClose(window, GL_TRUE);
+}
 
 MainWindow::MainWindow() 
 	:m_width(640), m_height(480)
@@ -14,6 +21,7 @@ MainWindow::MainWindow()
 	glfwMakeContextCurrent(m_window);
 
 	// TODO: callbacks
+	glfwSetKeyCallback(m_window, key_callback);
 
 	glewExperimental = GL_TRUE;
 	glewInit();
@@ -29,12 +37,17 @@ MainWindow::~MainWindow()
 
 void MainWindow::startMainLoop()
 {
+	GraphicObject obj;
+	
+
 	while (!glfwWindowShouldClose(m_window))
 	{
 		glfwPollEvents();
 
 		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
+
+		obj.draw();
 
 		glfwSwapBuffers(m_window);
 	}

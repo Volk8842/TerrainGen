@@ -69,3 +69,8 @@ void ShaderProgram::compileShaderProgram()
 		throw Error::BadShaderProgram();
 	}
 }
+
+void ShaderProgram::use()
+{
+	glUseProgram(m_program);
+}
