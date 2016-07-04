@@ -3,9 +3,9 @@
 
 // GLEW
 #define GLEW_STATIC
-#include <glew/glew.h>
+#include "Libs/glew/glew.h"
 
 // GLFW
-#include <glfw/glfw3.h>
+#include "Libs/glfw/glfw3.h"
 
 #endif //OPENGL_H
