@@ -48,6 +48,9 @@
     <ClCompile Include="GeneratorTest\HeightMapSectorGenerator.cpp">
       <Filter>Resource Files</Filter>
     </ClCompile>
+    <ClCompile Include="Centered2DVector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainWindow.h">
@@ -85,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="GeneratorTest\HeightMapSectorGenerator.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Centered2DVector.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
