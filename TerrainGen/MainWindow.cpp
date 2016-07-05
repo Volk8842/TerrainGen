@@ -26,8 +26,11 @@ MainWindow::MainWindow()
 	glewExperimental = GL_TRUE;
 	glewInit();
 
-	glfwGetFramebufferSize(m_window, &m_viewportWidth, &m_viewportHeight);
-	glViewport(0, 0, m_viewportWidth, m_viewportHeight);
+	int viewportWidth;
+	int viewportHeight;
+
+	glfwGetFramebufferSize(m_window, &viewportWidth, &viewportHeight);
+	glViewport(0, 0, viewportWidth, viewportHeight);
 
 	glEnable(GL_DEPTH_TEST);
 }
@@ -37,11 +40,15 @@ MainWindow::~MainWindow()
 	glfwTerminate();
 }
 
+void MainWindow::setScene(Scene* scene)
+{
+	m_scene = scene;
+}
+
 void MainWindow::startMainLoop()
 {
-	GraphicObject obj;
+//	GraphicObject obj;
 	
-
 	while (!glfwWindowShouldClose(m_window))
 	{
 		glfwPollEvents();
@@ -49,7 +56,9 @@ void MainWindow::startMainLoop()
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
-		obj.draw();
+//		obj.draw();
+
+		m_scene->draw();
 
 		glfwSwapBuffers(m_window);
 	}
