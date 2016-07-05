@@ -15,6 +15,7 @@ class ShaderProgram
 public:
 	void compileShaderProgram();
 	void use();
+	GLuint program();
 
 private:	
 	const std::string getShaderCode(const char* file);

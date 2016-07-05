@@ -28,6 +28,8 @@ MainWindow::MainWindow()
 
 	glfwGetFramebufferSize(m_window, &m_viewportWidth, &m_viewportHeight);
 	glViewport(0, 0, m_viewportWidth, m_viewportHeight);
+
+	glEnable(GL_DEPTH_TEST);
 }
 
 MainWindow::~MainWindow()
@@ -44,9 +46,9 @@ void MainWindow::startMainLoop()
 	{
 		glfwPollEvents();
 
-		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
-
+		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		
 		obj.draw();
 
 		glfwSwapBuffers(m_window);

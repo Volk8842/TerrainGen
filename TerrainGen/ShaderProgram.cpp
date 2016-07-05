@@ -74,3 +74,8 @@ void ShaderProgram::use()
 {
 	glUseProgram(m_program);
 }
+
+GLuint ShaderProgram::program()
+{
+	return m_program;
+}

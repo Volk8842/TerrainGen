@@ -4,14 +4,28 @@
 GraphicObject::GraphicObject()
 {
 	m_vertices = {
-		0.5f, 0.5f, 0.0f,  // Top Right
-		0.5f, -0.5f, 0.0f,  // Bottom Right
-		-0.5f, -0.5f, 0.0f,  // Bottom Left
-		-0.5f, 0.5f, 0.0f   // Top Left 
+		0.5f, 0.5f, 0.5f,
+		0.5f, -0.5f, 0.5f,
+		-0.5f, -0.5f, 0.5f,
+		-0.5f, 0.5f, 0.5f, 
+		0.5f, 0.5f, -0.5f,
+		0.5f, -0.5f, -0.5f,
+		-0.5f, -0.5f, -0.5f,
+		-0.5f, 0.5f, -0.5f,
 	};
 	m_indices = {
-		0, 1, 3,   // First Triangle
-		1, 2, 3    // Second Triangle
+		0, 1, 3,
+		1, 2, 3, 
+		1, 5, 2,
+		5, 6, 2,
+		4, 5, 0,
+		5, 1, 0,
+		4, 5, 7,
+		5, 6, 7,
+		4, 0, 7,
+		0, 3, 7,
+		3, 2, 7,
+		2, 6, 7,
 	};
 	m_shaderProgram = new ShaderProgram();
 	m_shaderProgram->compileShaderProgram();
@@ -43,6 +57,28 @@ void GraphicObject::prepareToDraw()
 void GraphicObject::draw()
 {
 	m_shaderProgram->use();
+
+	glm::mat4 translation(1.0f);
+	glm::mat4 rotation(1.0f);
+	glm::mat4 scale(1.0f);
+	glm::mat4 view;
+	glm::mat4 projection;
+
+	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+	projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.0f);
+
+	GLint translationLoc = glGetUniformLocation(m_shaderProgram->program(), "translation");
+	GLint rotationLoc = glGetUniformLocation(m_shaderProgram->program(), "rotation");
+	GLint scaleLoc = glGetUniformLocation(m_shaderProgram->program(), "scale");
+	GLint viewLoc = glGetUniformLocation(m_shaderProgram->program(), "view");
+	GLint projectionLoc = glGetUniformLocation(m_shaderProgram->program(), "projection");
+
+	glUniformMatrix4fv(translationLoc, 1, GL_FALSE, glm::value_ptr(translation));
+	glUniformMatrix4fv(rotationLoc, 1, GL_FALSE, glm::value_ptr(rotation));
+	glUniformMatrix4fv(scaleLoc, 1, GL_FALSE, glm::value_ptr(scale));
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+	glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
+
 	glBindVertexArray(m_vertexArrayObject);
 	glDrawElements(GL_TRIANGLES, m_indices.size(), GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
