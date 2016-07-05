@@ -4,14 +4,14 @@
 GraphicObject::GraphicObject()
 {
 	m_vertices = {
-		0.5f, 0.5f, 0.5f,
-		0.5f, -0.5f, 0.5f,
-		-0.5f, -0.5f, 0.5f,
-		-0.5f, 0.5f, 0.5f, 
-		0.5f, 0.5f, -0.5f,
-		0.5f, -0.5f, -0.5f,
-		-0.5f, -0.5f, -0.5f,
-		-0.5f, 0.5f, -0.5f,
+		0.5f, 0.5f, 0.5f, 0.6f, 0.0f, 0.0f,
+		0.5f, -0.5f, 0.5f, 0.6f, 0.0f, 0.0f,
+		-0.5f, -0.5f, 0.5f, 0.3f, 0.0f, 0.0f,
+		-0.5f, 0.5f, 0.5f, 0.3f, 0.0f, 0.0f,
+		0.5f, 0.5f, -0.5f, 0.6f, 0.0f, 0.0f,
+		0.5f, -0.5f, -0.5f, 0.6f, 0.0f, 0.0f,
+		-0.5f, -0.5f, -0.5f, 0.3f, 0.0f, 0.0f,
+		-0.5f, 0.5f, -0.5f, 0.3f, 0.0f, 0.0f,
 	};
 	m_indices = {
 		0, 1, 3,
@@ -47,8 +47,10 @@ void GraphicObject::prepareToDraw()
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * m_indices.size(), &m_indices[0], GL_STREAM_DRAW);
 
 	//TODO: must be customizable
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
-	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0); 
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(1);
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0); 
 	glBindVertexArray(0); 
@@ -64,7 +66,12 @@ void GraphicObject::draw()
 	glm::mat4 view;
 	glm::mat4 projection;
 
-	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+	view = glm::lookAt(
+		glm::vec3(2, 2, 2), // Camera is at (2,2,2), in World Space
+		glm::vec3(0, 0, 0), // and looks at the origin
+		glm::vec3(0, 1, 0)  // Head is up (set to 0,-1,0 to look upside-down)
+		);
+
 	projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.0f);
 
 	GLint translationLoc = glGetUniformLocation(m_shaderProgram->program(), "translation");
