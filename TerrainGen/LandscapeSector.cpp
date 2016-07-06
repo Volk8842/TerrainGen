@@ -5,3 +5,8 @@ LandscapeSector::LandscapeSector(Scene* scene) :
 {
 
 }
+
+void LandscapeSector::setVertices()
+{
+
+}

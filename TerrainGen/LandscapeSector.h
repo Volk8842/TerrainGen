@@ -11,6 +11,7 @@ class LandscapeSector :
 {
 public:
 	LandscapeSector(Scene* scene);
+	virtual void setVertices();
 
 private:
 	// Generated height map

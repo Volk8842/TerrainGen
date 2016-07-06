@@ -13,6 +13,7 @@ class Graphic2DObject
 public:
 	Graphic2DObject(Scene* scene);
 
+	virtual void setVertices() = 0;
 	void render();
 	void prepareToRender();
 
@@ -26,8 +27,8 @@ protected:
 	GLuint m_vertexBufferObject;
 	GLuint m_elementBufferObject;
 	
-	std::vector<GLfloat> m_vertices;
-	std::vector<GLuint> m_indices;
+	std::vector<GLfloat>* m_vertices;
+	std::vector<GLuint>* m_indices;
 
 	bool m_prepareToRenderNeeded;
 };

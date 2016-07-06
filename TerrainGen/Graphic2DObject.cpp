@@ -34,7 +34,7 @@ void Graphic2DObject::render()
 {
 	m_shaderProgram->use();
 
-	glm::vec2 position(100.0f, 100.0f);
+	glm::vec2 position(320.0f, 240.0f);
 	glm::vec2 scale(10.0f, 10.0f);  
 	GLfloat rotate(0.0f);
 
