@@ -1,17 +1,28 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include "Landscape.h"
+#include "OpenGLWindow.h"
+#include "Graphic2DObject.h"
+
+class Graphic2DObject;
+
+class OpenGLWindow;
 
 class Scene
 {
 public:
-	void draw();
+	Scene();
+
+	void setWindow(OpenGLWindow* window);
+
+	void render();
+	void prepareToRender();
 
 private:
-	void drawLandscape();
+	OpenGLWindow* m_window;
 
-	Landscape m_landscape;
+	Graphic2DObject* obj;
+
 };
 
 #endif //SCENE_H

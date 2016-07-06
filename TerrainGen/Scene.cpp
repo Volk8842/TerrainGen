@@ -1,11 +1,23 @@
 #include "Scene.h"
+#include "LandscapeSector.h"
 
-void Scene::draw()
+Scene::Scene()
 {
-	drawLandscape();
+	obj = new LandscapeSector(this);
 }
 
-void Scene::drawLandscape()
+void Scene::setWindow(OpenGLWindow* window)
 {
-
+	m_window = window;
 }
+
+void Scene::prepareToRender()
+{
+	obj->prepareToRender();
+}
+
+void Scene::render()
+{
+	obj->render();
+}
+

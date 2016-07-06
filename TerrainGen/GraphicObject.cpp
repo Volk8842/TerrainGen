@@ -28,7 +28,7 @@ GraphicObject::GraphicObject()
 		2, 6, 7,
 	};
 	m_shaderProgram = new ShaderProgram();
-	m_shaderProgram->compileShaderProgram("vertex.vsh", "fragment.fsh");
+	m_shaderProgram->compileShaderProgram("vertex.vert", "fragment.frag");
 
 	prepareToDraw();
 }

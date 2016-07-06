@@ -51,6 +51,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>Libs/glew/glew32s.lib;Libs/glfw/glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>NotSet</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -73,11 +74,12 @@
     <ClCompile Include="GeneratorTest\HeightMapSector.cpp" />
     <ClCompile Include="GeneratorTest\HeightMapSectorBase.cpp" />
     <ClCompile Include="GeneratorTest\HeightMapSectorGenerator.cpp" />
+    <ClCompile Include="Graphic2DObject.cpp" />
     <ClCompile Include="GraphicObject.cpp" />
     <ClCompile Include="Landscape.cpp" />
     <ClCompile Include="LandscapeSector.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="OpenGLWindow.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
   </ItemGroup>
@@ -88,10 +90,11 @@
     <ClInclude Include="GeneratorTest\HeightMapSector.h" />
     <ClInclude Include="GeneratorTest\HeightMapSectorBase.h" />
     <ClInclude Include="GeneratorTest\HeightMapSectorGenerator.h" />
+    <ClInclude Include="Graphic2DObject.h" />
     <ClInclude Include="GraphicObject.h" />
     <ClInclude Include="Landscape.h" />
     <ClInclude Include="LandscapeSector.h" />
-    <ClInclude Include="MainWindow.h" />
+    <ClInclude Include="OpenGLWindow.h" />
     <ClInclude Include="opengl.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="ShaderProgram.h" />

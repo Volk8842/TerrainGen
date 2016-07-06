@@ -1,19 +1,26 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef OPENGL_WINDOW_H
+#define OPENGL_WINDOW_H
 
 #include "opengl.h"
 #include "Scene.h"
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
-class MainWindow 
+class Scene;
+
+class OpenGLWindow
 {
 public:
-	MainWindow();
-	~MainWindow();
+	OpenGLWindow();
+	~OpenGLWindow();
+
+	void setScene(Scene* scene);
 
 	void startMainLoop();
-	void setScene(Scene* scene);
+
+	GLuint width();
+	GLuint height();
+	Scene* scene();
 
 private:
 	GLFWwindow* m_window;
@@ -23,4 +30,4 @@ private:
 	Scene* m_scene;
 };
 
-#endif //MAINWINDOW_H
+#endif //OPENGL_WINDOW_H

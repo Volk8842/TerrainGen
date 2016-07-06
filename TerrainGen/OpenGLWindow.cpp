@@ -1,5 +1,6 @@
-#include "MainWindow.h"
+#include "OpenGLWindow.h"
 #include "GraphicObject.h"
+#include "Graphic2DObject.h"
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
@@ -7,7 +8,7 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		glfwSetWindowShouldClose(window, GL_TRUE);
 }
 
-MainWindow::MainWindow() 
+OpenGLWindow::OpenGLWindow()
 	:m_width(640), m_height(480)
 {
 	glfwInit();
@@ -35,31 +36,43 @@ MainWindow::MainWindow()
 	glEnable(GL_DEPTH_TEST);
 }
 
-MainWindow::~MainWindow()
+OpenGLWindow::~OpenGLWindow()
 {
 	glfwTerminate();
 }
 
-void MainWindow::setScene(Scene* scene)
+void OpenGLWindow::setScene(Scene* scene)
 {
 	m_scene = scene;
+	m_scene->setWindow(this);
 }
 
-void MainWindow::startMainLoop()
+void OpenGLWindow::startMainLoop()
 {
-	GraphicObject obj;
-	
 	while (!glfwWindowShouldClose(m_window))
 	{
 		glfwPollEvents();
-
-		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		
-		obj.draw();
-
-		m_scene->draw();
-
+		if (m_scene != nullptr) {
+			m_scene->prepareToRender();
+			m_scene->render();
+		}
 		glfwSwapBuffers(m_window);
 	}
+}
+
+GLuint OpenGLWindow::width()
+{
+	return m_width;
+}
+
+GLuint OpenGLWindow::height()
+{
+	return m_height;
+}
+
+Scene* OpenGLWindow::scene()
+{
+	return m_scene;
 }
