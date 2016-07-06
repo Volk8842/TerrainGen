@@ -3,18 +3,19 @@
 
 #include <vector>
 #include "opengl.h"
+#include "Centered2DHeightMap.h"
 
 class LandscapeSector
 {
 
 
 private:
-	void fill();
+	// Generated height map
+	Centered2DHeightMap m_heightMap;
 
-	int m_sectorSideWidth;
-
-	std::vector<GLfloat>* vertices;
-	std::vector<GLuint>* indices;
+	// Data for visualization
+	std::vector<GLfloat>* m_vertices;
+	std::vector<GLuint>* m_indices;
 };
 
 #endif //LANDSCAPE_SECTOR_H
