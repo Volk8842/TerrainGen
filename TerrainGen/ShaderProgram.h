@@ -2,6 +2,7 @@
 #define SHADERPROGRAM_H
 
 #include "opengl.h"
+#include <string>
 
 namespace Error 
 {
@@ -13,13 +14,15 @@ namespace Error
 class ShaderProgram 
 {	
 public:
-	void compileShaderProgram();
+	void compileShaderProgram(std::string vShader, std::string fShader);
 	void use();
 	GLuint program();
 
 private:	
 	const std::string getShaderCode(const char* file);
 	GLuint compileShaderCode(const char* file, GLenum shaderType);
+
+	static const std::string SHADER_FILE_PREFIX;
 
 	GLuint m_program;
 };

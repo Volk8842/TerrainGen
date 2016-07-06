@@ -68,7 +68,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Centered2DVector.cpp" />
+    <ClCompile Include="Centered2DHeightMap.cpp" />
     <ClCompile Include="GeneratorTest\GlobalMap.cpp" />
     <ClCompile Include="GeneratorTest\HeightMapSector.cpp" />
     <ClCompile Include="GeneratorTest\HeightMapSectorBase.cpp" />
@@ -82,7 +82,7 @@
     <ClCompile Include="ShaderProgram.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Centered2DVector.h" />
+    <ClInclude Include="Centered2DHeightMap.h" />
     <ClInclude Include="GeneratorTest\Debug.h" />
     <ClInclude Include="GeneratorTest\GlobalMap.h" />
     <ClInclude Include="GeneratorTest\HeightMapSector.h" />

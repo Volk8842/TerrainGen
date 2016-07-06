@@ -47,7 +47,7 @@ void MainWindow::setScene(Scene* scene)
 
 void MainWindow::startMainLoop()
 {
-//	GraphicObject obj;
+	GraphicObject obj;
 	
 	while (!glfwWindowShouldClose(m_window))
 	{
@@ -56,7 +56,7 @@ void MainWindow::startMainLoop()
 		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		
-//		obj.draw();
+		obj.draw();
 
 		m_scene->draw();
 

@@ -4,6 +4,8 @@
 
 #include "ShaderProgram.h"
 
+const std::string ShaderProgram::SHADER_FILE_PREFIX = "Shaders/";
+
 const std::string ShaderProgram::getShaderCode(const char* file) 
 {
 	std::ifstream shaderFile;
@@ -45,11 +47,11 @@ GLuint ShaderProgram::compileShaderCode(const char* file, GLenum shaderType)
 	return shaderId;
 }
 
-void ShaderProgram::compileShaderProgram() 
+void ShaderProgram::compileShaderProgram(std::string vShader, std::string fShader)
 {
 	try {
-		GLuint vertexShader = compileShaderCode("Shaders/vertex.vsh", GL_VERTEX_SHADER);
-		GLuint fragmentShader = compileShaderCode("Shaders/fragment.fsh", GL_FRAGMENT_SHADER);
+		GLuint vertexShader = compileShaderCode((SHADER_FILE_PREFIX + vShader).c_str(), GL_VERTEX_SHADER);
+		GLuint fragmentShader = compileShaderCode((SHADER_FILE_PREFIX + fShader).c_str(), GL_FRAGMENT_SHADER);
 		m_program = glCreateProgram();
 		glAttachShader(m_program, vertexShader);
 		glAttachShader(m_program, fragmentShader);

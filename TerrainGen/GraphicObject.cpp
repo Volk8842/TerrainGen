@@ -4,14 +4,14 @@
 GraphicObject::GraphicObject()
 {
 	m_vertices = {
-		0.5f, 0.5f, 0.5f, 0.0f, 0.6f, 0.0f,
+		0.5f, 0.5f, 0.5f, 0.6f, 0.0f, 0.0f,
 		0.5f, -0.5f, 0.5f, 0.3f, 0.0f, 0.0f,
 		-0.5f, -0.5f, 0.5f, 0.3f, 0.0f, 0.0f,
-		-0.5f, 0.5f, 0.5f, 0.0f, 0.6f, 0.0f,
-		0.5f, 0.5f, -0.5f, 0.3f, 0.6f, 0.0f,
+		-0.5f, 0.5f, 0.5f, 0.3f, 0.0f, 0.0f,
+		0.5f, 0.5f, -0.5f, 0.3f, 0.0f, 0.0f,
 		0.5f, -0.5f, -0.5f, 0.3f, 0.0f, 0.0f,
 		-0.5f, -0.5f, -0.5f, 0.3f, 0.0f, 0.0f,
-		-0.5f, 0.5f, -0.5f, 0.3f, 0.6f, 0.0f,
+		-0.5f, 0.5f, -0.5f, 0.3f, 0.0f, 0.0f,
 	};
 	m_indices = {
 		0, 1, 3,
@@ -28,7 +28,7 @@ GraphicObject::GraphicObject()
 		2, 6, 7,
 	};
 	m_shaderProgram = new ShaderProgram();
-	m_shaderProgram->compileShaderProgram();
+	m_shaderProgram->compileShaderProgram("vertex.vsh", "fragment.fsh");
 
 	prepareToDraw();
 }
