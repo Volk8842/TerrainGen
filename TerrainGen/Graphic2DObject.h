@@ -2,25 +2,23 @@
 #define GRAPHIC_2D_OBJECT_H
 
 #include <vector>
+
 #include "opengl.h"
 #include "ShaderProgram.h"
-#include "Scene.h"
-
-class Scene;
 
 class Graphic2DObject
 {
 public:
-	Graphic2DObject(Scene* scene);
+	Graphic2DObject(std::vector<GLfloat>* vertices,
+					std::vector<GLuint>* indices);
+	~Graphic2DObject();
 
-	virtual void setVertices() = 0;
 	void render();
 	void prepareToRender();
 
 	void setShaderProgram(ShaderProgram* shaderProgram);
 
 protected:
-	Scene* m_scene;
 	ShaderProgram* m_shaderProgram;
 
 	GLuint m_vertexArrayObject;

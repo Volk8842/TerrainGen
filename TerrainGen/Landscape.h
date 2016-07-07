@@ -2,7 +2,9 @@
 #define LANDSCAPE_H
 
 #include <vector>
+
 #include "opengl.h"
+#include "SectorCoords.h"
 #include "LandscapeSector.h"
 #include "Centered2DHeightMap.h"
 #include "Graphic2DObject.h"
@@ -17,13 +19,6 @@ static const int SECTOR_SIZE = SECTOR_SIDE_WIDTH * SECTOR_SIDE_WIDTH;
 static const int GENERATOR_SIDE_WIDTH = 2 * SECTOR_SIDE_WIDTH - 1;
 static const int GENERATOR_HALF_SIDE_WIDTH = (GENERATOR_SIDE_WIDTH - 1) / 2;
 static const int GENERATOR_SIZE = GENERATOR_SIDE_WIDTH * GENERATOR_SIDE_WIDTH;
-
-struct SectorCoords
-{
-	SectorCoords(int _x, int _y) : x(_x), y(_y) {};
-	int x;
-	int y;
-};
 
 class Landscape
 {

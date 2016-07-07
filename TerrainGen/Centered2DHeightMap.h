@@ -14,7 +14,8 @@ public:
 
 private:
 	std::vector<GLfloat>* m_vector;
-
+	int m_sideWidth;
+	int m_halfSideWidth;
 };
 
 #endif //CENTERED_2D_HEIGHT_MAP_H

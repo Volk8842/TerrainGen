@@ -97,6 +97,7 @@
     <ClInclude Include="OpenGLWindow.h" />
     <ClInclude Include="opengl.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SectorCoords.h" />
     <ClInclude Include="ShaderProgram.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

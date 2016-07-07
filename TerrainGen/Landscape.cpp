@@ -54,15 +54,14 @@ Graphic2DObject* Landscape::createGraphicRepresentation()
 {
 	std::vector<GLfloat>* vertices = generateVertices();
 	std::vector<GLuint>* indices = generateIndices();
-
-//	Graphic2DObject* newObject = Graphic2DObject
+	return new Graphic2DObject(vertices, indices);
 }
 
 GLfloat Landscape::getCornerHeight(SectorCoords coords)
 {
 	// TODO: impl needed
 	srand(coords.x * coords.y + coords.x + coords.y);
-	return (rand() % 10000) / 10000;
+	return (rand() % 100) / 100.0;
 }
 
 void Landscape::useSquareDiamondAlgorithm(Centered2DHeightMap& generator)

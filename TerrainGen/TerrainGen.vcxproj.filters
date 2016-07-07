@@ -98,5 +98,8 @@
     <ClInclude Include="OpenGLWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SectorCoords.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

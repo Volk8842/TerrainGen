@@ -3,8 +3,8 @@
 
 #include <vector>
 #include "opengl.h"
+#include "SectorCoords.h"
 #include "Centered2DHeightMap.h"
-#include "Landscape.h"
 
 class LandscapeSector 
 {

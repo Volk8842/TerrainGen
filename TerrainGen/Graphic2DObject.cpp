@@ -1,16 +1,37 @@
 #include "Graphic2DObject.h"
 
-Graphic2DObject::Graphic2DObject(Scene* scene)
+Graphic2DObject::Graphic2DObject(std::vector<GLfloat>* vertices,
+								 std::vector<GLuint>* indices
+								 ) :
+	m_vertices(vertices),
+	m_indices(indices)
 {
-	m_scene = scene;
+	m_vertices = new std::vector<GLfloat> {
+		100.0f, 100.0f, 0.0f,  // Top Right
+		300.0f, 100.0f, 0.0f,  // Bottom Right
+		100.0f, 300.0f, 0.0f,  // Bottom Left
+		300.0f, 300.0f, 0.0f   // Top Left 
+		 };
+	m_indices = new std::vector<GLuint> {
+		0, 1, 3,   // First Triangle
+		1, 2, 3    // Second Triangle
+		 };
+
+
 	m_prepareToRenderNeeded = true;
+}
+
+Graphic2DObject::~Graphic2DObject()
+{
+	delete(m_vertices);
+	delete(m_indices);
 }
 
 void Graphic2DObject::prepareToRender()
 {
-	if (!m_prepareToRenderNeeded)
-		return;
-	m_prepareToRenderNeeded = false;
+	//if (!m_prepareToRenderNeeded)
+	//	return;
+	//m_prepareToRenderNeeded = false;
 	glGenVertexArrays(1, &m_vertexArrayObject);
 	glGenBuffers(1, &m_vertexBufferObject);
 	glGenBuffers(1, &m_elementBufferObject);
@@ -32,24 +53,24 @@ void Graphic2DObject::prepareToRender()
 
 void Graphic2DObject::render()
 {
+	//glm::vec2 position(320.0f, 240.0f);
+	//glm::vec2 scale(1.0f, 1.0f);  
+	//GLfloat rotate(0.0f);
+
+	//glm::mat4 model;
+	//model = glm::translate(model, glm::vec3(position, 0.0f));
+	//model = glm::rotate(model, rotate, glm::vec3(0.0f, 0.0f, 1.0f));
+	//model = glm::scale(model, glm::vec3(scale, 1.0f));
+
+
+	//glm::mat4 projection = glm::ortho(0.0f, 640.0f, 480.0f, 0.0f, -10.0f, 10.0f);
+	//GLint projectionLoc = glGetUniformLocation(m_shaderProgram->program(), "projection");
+	//glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
+
+	//GLint modificationLoc = glGetUniformLocation(m_shaderProgram->program(), "modification");
+	//glUniformMatrix4fv(modificationLoc, 1, GL_FALSE, glm::value_ptr(model));
+
 	m_shaderProgram->use();
-
-	glm::vec2 position(320.0f, 240.0f);
-	glm::vec2 scale(10.0f, 10.0f);  
-	GLfloat rotate(0.0f);
-
-	glm::mat4 model;
-	model = glm::translate(model, glm::vec3(position, 0.0f));
-	model = glm::rotate(model, rotate, glm::vec3(0.0f, 0.0f, 1.0f));
-	model = glm::scale(model, glm::vec3(scale, 1.0f));
-
-	glm::mat4 projection = glm::ortho(0.0f, 640.0f, 480.0f, 0.0f, -1.0f, 1.0f);
-	GLint projectionLoc = glGetUniformLocation(m_shaderProgram->program(), "projection");
-	glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
-
-	GLint modificationLoc = glGetUniformLocation(m_shaderProgram->program(), "modification");
-	glUniformMatrix4fv(modificationLoc, 1, GL_FALSE, glm::value_ptr(model));
-
 	glBindVertexArray(m_vertexArrayObject);
 	glDrawElements(GL_TRIANGLES, m_indices->size(), GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
