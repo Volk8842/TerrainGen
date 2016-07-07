@@ -4,18 +4,16 @@
 #include <vector>
 #include "opengl.h"
 #include "Centered2DHeightMap.h"
-#include "Graphic2DObject.h"
+#include "Landscape.h"
 
-class LandscapeSector : 
-	public Graphic2DObject
+class LandscapeSector 
 {
 public:
-	LandscapeSector(Scene* scene);
-	virtual void setVertices();
-
+	LandscapeSector(SectorCoords coords, Centered2DHeightMap* heightMap);
+	~LandscapeSector();
 private:
-	// Generated height map
-	Centered2DHeightMap m_heightMap;
+	SectorCoords m_coords;
+	Centered2DHeightMap* m_heightMap;
 };
 
 #endif //LANDSCAPE_SECTOR_H

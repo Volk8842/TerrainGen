@@ -1,12 +1,12 @@
 #include "LandscapeSector.h"
 
-LandscapeSector::LandscapeSector(Scene* scene) :
-	Graphic2DObject(scene)
+LandscapeSector::LandscapeSector(SectorCoords coords, Centered2DHeightMap* heightMap) :
+	m_coords(coords),
+	m_heightMap(heightMap)
 {
-
 }
 
-void LandscapeSector::setVertices()
+LandscapeSector::~LandscapeSector()
 {
-
+	delete(m_heightMap);
 }
