@@ -5,6 +5,7 @@
 #include "opengl.h"
 #include "LandscapeSector.h"
 #include "Centered2DHeightMap.h"
+#include "Graphic2DObject.h"
 
 // because there is no const float shit
 #define UNDEFINED_VALUE -1.0f
@@ -27,13 +28,23 @@ struct SectorCoords
 class Landscape
 {
 public:
+	Landscape();
+	Graphic2DObject* createGraphicRepresentation();
 
 private:
+	// Generate sector
 	void useSquareDiamondAlgorithm(Centered2DHeightMap& generator);
 	void useSquareStep(int x, int y, int side, Centered2DHeightMap& generator);
 	void useDiamondStep(int x, int y, int side, Centered2DHeightMap& generator);
 	GLfloat getCornerHeight(SectorCoords coords);
 	LandscapeSector* generateSector(SectorCoords coords);
+
+	// Generate graphics
+	std::vector<GLfloat>* generateVertices();
+	std::vector<GLuint>* generateIndices();
+
+	// TODO: not only one 
+	LandscapeSector* m_map;
 };
 
 #endif //LANDSCAPE_H

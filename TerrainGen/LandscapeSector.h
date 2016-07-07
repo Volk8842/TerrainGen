@@ -11,6 +11,9 @@ class LandscapeSector
 public:
 	LandscapeSector(SectorCoords coords, Centered2DHeightMap* heightMap);
 	~LandscapeSector();
+
+	Centered2DHeightMap* heightMap();
+
 private:
 	SectorCoords m_coords;
 	Centered2DHeightMap* m_heightMap;

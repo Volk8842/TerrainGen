@@ -10,3 +10,8 @@ LandscapeSector::~LandscapeSector()
 {
 	delete(m_heightMap);
 }
+
+Centered2DHeightMap* LandscapeSector::heightMap()
+{
+	return m_heightMap;
+}

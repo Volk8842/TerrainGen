@@ -3,7 +3,6 @@
 
 Scene::Scene()
 {
-	obj = new LandscapeSector(this);
 }
 
 void Scene::setWindow(OpenGLWindow* window)
@@ -13,11 +12,9 @@ void Scene::setWindow(OpenGLWindow* window)
 
 void Scene::prepareToRender()
 {
-	obj->prepareToRender();
 }
 
 void Scene::render()
 {
-	obj->render();
 }
 
