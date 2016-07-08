@@ -1,10 +1,19 @@
 #version 330 core
 
-in vec3 ver_color;
+in float height;
 
 out vec4 color;
 
 void main()
 {
-    color = vec4(ver_color, 1.0f);
+	if (height < 0.4f) 
+	{
+		color = vec4(0.0f, 0.0f, height + 0.3f, 1.0f);
+	} 
+	else if (height < 0.7f)
+	{
+		color = vec4(0.0f, height, 0.0f, 1.0f);
+	} 
+	else 
+		color = vec4(height, height, height, 1.0f);
 }

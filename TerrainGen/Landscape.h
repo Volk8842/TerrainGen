@@ -12,7 +12,7 @@
 // because there is no const float shit
 #define UNDEFINED_VALUE -1.0f
 
-static const int SECTOR_SIDE_WIDTH = 65;
+static const int SECTOR_SIDE_WIDTH = 129;
 static const int SECTOR_HALF_SIDE_WIDTH = (SECTOR_SIDE_WIDTH - 1) / 2;
 static const int SECTOR_SIZE = SECTOR_SIDE_WIDTH * SECTOR_SIDE_WIDTH;
 

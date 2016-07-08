@@ -4,11 +4,11 @@ layout (location = 0) in vec3 position;
 uniform mat4 modification;
 uniform mat4 projection;
 
-out vec3 ver_color;
+out float height;
 
 void main()
 {
 	vec4 model = modification * vec4(position.xz, 0.0f, 1.0f);
     gl_Position = projection * model;
-	ver_color = vec3(position.y, position.y, position.y);
+	height = position.y;
 }

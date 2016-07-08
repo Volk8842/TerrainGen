@@ -133,14 +133,18 @@ void Landscape::useDiamondStep(int x, int y, int side, Centered2DHeightMap& gene
 
 GLfloat Landscape::addVertexDisplacement(GLfloat value, int side)
 {
-	GLfloat roughness = 0.25f / SECTOR_SIDE_WIDTH;
-	GLfloat topD = side * roughness;
-	GLfloat botD = side * roughness;
-	if (value + topD > 1.0f)
-		topD = 1.0f - side;
-	if (value + botD < 0.0f)
-		botD = side;
-	return value + (rand() % (int)((topD + botD) * 10000)) / 10000.0f - (topD + botD) / 2.0;
+	GLfloat length = (side * 1.0f) / SECTOR_SIDE_WIDTH;
+	GLfloat roughness = 0.8f;
+	GLfloat topD = length * roughness / 2.0f;
+	GLfloat botD = length * roughness / 2.0f;
+	if (value + topD > 1.0f) {
+		topD = 1.0f - value;
+		return 1.0f - (rand() % (int)((topD + botD) * 10000)) / 10000.0f;
+	} else if (value - botD < 0.0f) {
+		botD = value;
+		return (rand() % (int)((topD + botD) * 10000)) / 10000.0f;
+	} else 
+		return value + (rand() % (int)((topD + botD) * 10000)) / 10000.0f - (topD + botD) / 2.0;
 }
 
 LandscapeSector* Landscape::generateSector(SectorCoords coords)
