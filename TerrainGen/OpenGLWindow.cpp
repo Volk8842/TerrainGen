@@ -49,6 +49,7 @@ void OpenGLWindow::setScene(Scene* scene)
 
 void OpenGLWindow::startMainLoop()
 {
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	while (!glfwWindowShouldClose(m_window))
 	{
 		glfwPollEvents();

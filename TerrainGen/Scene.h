@@ -20,7 +20,7 @@ public:
 
 private:
 	OpenGLWindow* m_window;
-
+	ShaderProgram* m_shaderProgram;
 	Graphic2DObject* obj;
 
 };

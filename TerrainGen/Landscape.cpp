@@ -35,8 +35,8 @@ std::vector<GLuint>* Landscape::generateIndices()
 {
 	std::vector<GLuint>* indices = new std::vector<GLuint>(SECTOR_SIZE * 6);
 	int it = 0;
-	for (int j = 0; j < SECTOR_SIDE_WIDTH; j++) {
-		for (int i = 0; i < SECTOR_SIDE_WIDTH; i++) {
+	for (int j = 0; j < SECTOR_SIDE_WIDTH - 1; j++) {
+		for (int i = 0; i < SECTOR_SIDE_WIDTH - 1; i++) {
 			int x = SECTOR_SIDE_WIDTH * j + i;
 			indices->operator[](it) = x;
 			indices->operator[](it + 1) = x + 1;
@@ -60,7 +60,7 @@ Graphic2DObject* Landscape::createGraphicRepresentation()
 GLfloat Landscape::getCornerHeight(SectorCoords coords)
 {
 	// TODO: impl needed
-	srand(coords.x * coords.y + coords.x + coords.y);
+//	srand(coords.x * coords.y + coords.x + coords.y);
 	return (rand() % 100) / 100.0;
 }
 
@@ -103,10 +103,11 @@ void Landscape::useSquareStep(int x, int y, int side, Centered2DHeightMap& gener
 	if (generator.vertex(x, y) != UNDEFINED_VALUE)
 		return;
 	int offset = (side - 1) / 2.0;
-	generator.setVertex(x, y, (generator.vertex(x - offset, y - offset) + 
-							   generator.vertex(x + offset, y - offset) +
-		                       generator.vertex(x - offset, y + offset) + 
-							   generator.vertex(x + offset, y + offset)) / 4);
+	GLfloat value = (generator.vertex(x - offset, y - offset) +
+					 generator.vertex(x + offset, y - offset) +
+					 generator.vertex(x - offset, y + offset) +
+					 generator.vertex(x + offset, y + offset)) / 4;
+	generator.setVertex(x, y, addVertexDisplacement(value, side));
 }
 
 void Landscape::useDiamondStep(int x, int y, int side, Centered2DHeightMap& generator)
@@ -114,18 +115,32 @@ void Landscape::useDiamondStep(int x, int y, int side, Centered2DHeightMap& gene
 	if (generator.vertex(x, y) != UNDEFINED_VALUE)
 		return;
 	int offset = (side - 1) / 2.0;
+	GLfloat value;
 	if (generator.vertex(x - offset, y) < 0 || generator.vertex(x + offset, y) < 0 ||
 		generator.vertex(x, y - offset) < 0 || generator.vertex(x, y + offset) < 0) {
-		generator.setVertex(x, y, (generator.vertex(x - offset, y) + 
-							       generator.vertex(x + offset, y) +
-								   generator.vertex(x, y - offset) + 
-								   generator.vertex(x, y + offset) + 1) / 3);
+		value = (generator.vertex(x - offset, y) +
+				 generator.vertex(x + offset, y) +
+				 generator.vertex(x, y - offset) +
+				 generator.vertex(x, y + offset) + 1) / 3;
 	} else {
-		generator.setVertex(x, y, (generator.vertex(x - offset, y) + 
-								   generator.vertex(x + offset, y) +
-								   generator.vertex(x, y - offset) + 
-								   generator.vertex(x, y + offset)) / 4);
+		value = (generator.vertex(x - offset, y) +
+				 generator.vertex(x + offset, y) +
+				 generator.vertex(x, y - offset) + 
+				 generator.vertex(x, y + offset)) / 4;
 	}
+	generator.setVertex(x, y, addVertexDisplacement(value, side));
+}
+
+GLfloat Landscape::addVertexDisplacement(GLfloat value, int side)
+{
+	GLfloat roughness = 0.25f / SECTOR_SIDE_WIDTH;
+	GLfloat topD = side * roughness;
+	GLfloat botD = side * roughness;
+	if (value + topD > 1.0f)
+		topD = 1.0f - side;
+	if (value + botD < 0.0f)
+		botD = side;
+	return value + (rand() % (int)((topD + botD) * 10000)) / 10000.0f - (topD + botD) / 2.0;
 }
 
 LandscapeSector* Landscape::generateSector(SectorCoords coords)

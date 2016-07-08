@@ -12,7 +12,7 @@
 // because there is no const float shit
 #define UNDEFINED_VALUE -1.0f
 
-static const int SECTOR_SIDE_WIDTH = 9;
+static const int SECTOR_SIDE_WIDTH = 65;
 static const int SECTOR_HALF_SIDE_WIDTH = (SECTOR_SIDE_WIDTH - 1) / 2;
 static const int SECTOR_SIZE = SECTOR_SIDE_WIDTH * SECTOR_SIDE_WIDTH;
 
@@ -31,6 +31,7 @@ private:
 	void useSquareDiamondAlgorithm(Centered2DHeightMap& generator);
 	void useSquareStep(int x, int y, int side, Centered2DHeightMap& generator);
 	void useDiamondStep(int x, int y, int side, Centered2DHeightMap& generator);
+	GLfloat addVertexDisplacement(GLfloat value, int side);
 	GLfloat getCornerHeight(SectorCoords coords);
 	LandscapeSector* generateSector(SectorCoords coords);
 

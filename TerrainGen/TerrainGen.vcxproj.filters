@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="OldDevelopments">
+      <UniqueIdentifier>{60a88307-e929-4921-b222-34a1c4c66f03}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -33,18 +36,6 @@
     <ClCompile Include="LandscapeSector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratorTest\GlobalMap.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratorTest\HeightMapSector.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratorTest\HeightMapSectorBase.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratorTest\HeightMapSectorGenerator.cpp">
-      <Filter>Resource Files</Filter>
-    </ClCompile>
     <ClCompile Include="Centered2DHeightMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -53,6 +44,18 @@
     </ClCompile>
     <ClCompile Include="OpenGLWindow.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratorTest\GlobalMap.cpp">
+      <Filter>OldDevelopments</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratorTest\HeightMapSector.cpp">
+      <Filter>OldDevelopments</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratorTest\HeightMapSectorBase.cpp">
+      <Filter>OldDevelopments</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratorTest\HeightMapSectorGenerator.cpp">
+      <Filter>OldDevelopments</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,21 +77,6 @@
     <ClInclude Include="LandscapeSector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GeneratorTest\Debug.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratorTest\GlobalMap.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratorTest\HeightMapSector.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratorTest\HeightMapSectorBase.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratorTest\HeightMapSectorGenerator.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
     <ClInclude Include="Centered2DHeightMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -101,5 +89,40 @@
     <ClInclude Include="SectorCoords.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GeneratorTest\Debug.h">
+      <Filter>OldDevelopments</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratorTest\GlobalMap.h">
+      <Filter>OldDevelopments</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratorTest\HeightMapSector.h">
+      <Filter>OldDevelopments</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratorTest\HeightMapSectorBase.h">
+      <Filter>OldDevelopments</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratorTest\HeightMapSectorGenerator.h">
+      <Filter>OldDevelopments</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Shaders\2DHeightMap.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\2DHeightMap.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\default.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\default.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\fragment.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="Shaders\vertex.vert">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

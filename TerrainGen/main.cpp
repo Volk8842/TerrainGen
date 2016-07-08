@@ -1,13 +1,15 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <ctime>
 
 #include "OpenGLWindow.h"
 #include "Scene.h"
 
 int main() {
-	Scene scene;
+	srand(time(0));
 	OpenGLWindow window;
+	Scene scene;
 	window.setScene(&scene);
 	window.startMainLoop();
 	return 0;
