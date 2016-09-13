@@ -21,19 +21,19 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="OpenGLApplication.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="ShaderProgram.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GraphicObject.cpp">
+    <ClCompile Include="Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
+    <ClCompile Include="Controllers/DefaultController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Landscape.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LandscapeSector.cpp">
+    <ClCompile Include="CameraManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Centered2DHeightMap.cpp">
@@ -42,39 +42,36 @@
     <ClCompile Include="Graphic2DObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OpenGLWindow.cpp">
+    <ClCompile Include="Landscape.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratorTest\GlobalMap.cpp">
-      <Filter>OldDevelopments</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratorTest\HeightMapSector.cpp">
-      <Filter>OldDevelopments</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratorTest\HeightMapSectorBase.cpp">
-      <Filter>OldDevelopments</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratorTest\HeightMapSectorGenerator.cpp">
-      <Filter>OldDevelopments</Filter>
+    <ClCompile Include="LandscapeSector.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="opengl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="OpenGLApplication.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="ShaderProgram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GraphicObject.h">
+    <ClInclude Include="Camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
+    <ClInclude Include="Debug.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Landscape.h">
+    <ClInclude Include="Controllers/DefaultController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LandscapeSector.h">
+    <ClInclude Include="Controllers/IController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Centered2DHeightMap.h">
@@ -83,26 +80,14 @@
     <ClInclude Include="Graphic2DObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGLWindow.h">
+    <ClInclude Include="Landscape.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LandscapeSector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SectorCoords.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratorTest\Debug.h">
-      <Filter>OldDevelopments</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratorTest\GlobalMap.h">
-      <Filter>OldDevelopments</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratorTest\HeightMapSector.h">
-      <Filter>OldDevelopments</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratorTest\HeightMapSectorBase.h">
-      <Filter>OldDevelopments</Filter>
-    </ClInclude>
-    <ClInclude Include="GeneratorTest\HeightMapSectorGenerator.h">
-      <Filter>OldDevelopments</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -110,18 +95,6 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="Shaders\2DHeightMap.vert">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Shaders\default.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Shaders\default.vert">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Shaders\fragment.frag">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Shaders\vertex.vert">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

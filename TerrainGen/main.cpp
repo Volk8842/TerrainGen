@@ -1,16 +1,7 @@
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <ctime>
-
-#include "OpenGLWindow.h"
-#include "Scene.h"
+#include <OpenGLApplication.h>
 
 int main() {
-	srand(time(0));
-	OpenGLWindow window;
-	Scene scene;
-	window.setScene(&scene);
-	window.startMainLoop();
+	OpenGLApplication* app = OpenGLApplication::getInstance();
+	app->start();
 	return 0;
 }

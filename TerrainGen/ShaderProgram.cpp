@@ -2,12 +2,11 @@
 #include <fstream>
 #include <sstream>
 
-#include "ShaderProgram.h"
+#include <ShaderProgram.h>
 
 const std::string ShaderProgram::SHADER_FILE_PREFIX = "Shaders/";
 
-const std::string ShaderProgram::getShaderCode(const char* file) 
-{
+const std::string ShaderProgram::getShaderCode(const char* file) {
 	std::ifstream shaderFile;
 	std::stringstream shaderCodeStream;
 	std::string shaderCodeString;
@@ -24,8 +23,7 @@ const std::string ShaderProgram::getShaderCode(const char* file)
 	return shaderCodeString;
 }
 
-GLuint ShaderProgram::compileShaderCode(const char* file, GLenum shaderType) 
-{	
+GLuint ShaderProgram::compileShaderCode(const char* file, GLenum shaderType) {	
 	GLuint shaderId = glCreateShader(shaderType);
 	
 	try {	
@@ -47,8 +45,7 @@ GLuint ShaderProgram::compileShaderCode(const char* file, GLenum shaderType)
 	return shaderId;
 }
 
-void ShaderProgram::compileShaderProgram(std::string vShader, std::string fShader)
-{
+void ShaderProgram::compileShaderProgram(std::string vShader, std::string fShader) {
 	try {
 		GLuint vertexShader = compileShaderCode((SHADER_FILE_PREFIX + vShader).c_str(), GL_VERTEX_SHADER);
 		GLuint fragmentShader = compileShaderCode((SHADER_FILE_PREFIX + fShader).c_str(), GL_FRAGMENT_SHADER);
@@ -72,12 +69,10 @@ void ShaderProgram::compileShaderProgram(std::string vShader, std::string fShade
 	}
 }
 
-void ShaderProgram::use()
-{
+void ShaderProgram::use() {
 	glUseProgram(m_program);
 }
 
-GLuint ShaderProgram::program()
-{
+GLuint ShaderProgram::program() {
 	return m_program;
 }

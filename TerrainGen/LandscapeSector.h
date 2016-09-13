@@ -2,9 +2,9 @@
 #define LANDSCAPE_SECTOR_H
 
 #include <vector>
-#include "opengl.h"
-#include "SectorCoords.h"
-#include "Centered2DHeightMap.h"
+#include <opengl.h>
+#include <SectorCoords.h>
+#include <Centered2DHeightMap.h>
 
 class LandscapeSector 
 {

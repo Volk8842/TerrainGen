@@ -2,9 +2,8 @@
 #define GRAPHIC_2D_OBJECT_H
 
 #include <vector>
-
-#include "opengl.h"
-#include "ShaderProgram.h"
+#include <opengl.h>
+#include <ShaderProgram.h>
 
 class Graphic2DObject
 {
@@ -28,7 +27,7 @@ protected:
 	std::vector<GLfloat>* m_vertices;
 	std::vector<GLuint>* m_indices;
 
-	bool m_prepareToRenderNeeded;
+	bool m_dataUpdated;
 };
 
 #endif //GRAPHIC_2D_OBJECT_H

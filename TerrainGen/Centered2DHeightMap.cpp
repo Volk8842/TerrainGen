@@ -1,5 +1,5 @@
-#include "Centered2DHeightMap.h"
-#include "Landscape.h"
+#include <Centered2DHeightMap.h>
+#include <Landscape.h>
 
 Centered2DHeightMap::Centered2DHeightMap(int size)
 {

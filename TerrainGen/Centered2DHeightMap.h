@@ -2,10 +2,9 @@
 #define CENTERED_2D_HEIGHT_MAP_H
 
 #include <vector>
-#include "opengl.h"
+#include <opengl.h>
 
-class Centered2DHeightMap
-{
+class Centered2DHeightMap {
 public:
 	Centered2DHeightMap(int size);
 	~Centered2DHeightMap();

@@ -1,18 +1,17 @@
 #ifndef SHADERPROGRAM_H
 #define SHADERPROGRAM_H
 
-#include "opengl.h"
 #include <string>
 
-namespace Error 
-{
+#include <opengl.h>
+
+namespace Error {
 	struct NoShaderFile: public std::exception{};
 	struct BadShaderFile: public std::exception{};
 	struct BadShaderProgram: public std::exception{};
 }
 
-class ShaderProgram 
-{	
+class ShaderProgram {	
 public:
 	void compileShaderProgram(std::string vShader, std::string fShader);
 	void use();
