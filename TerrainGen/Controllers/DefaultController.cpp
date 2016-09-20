@@ -1,5 +1,7 @@
 
 #include <Controllers/DefaultController.h>
+#include <LandscapeGenerator.h>
+#include <CenteredHeightMap.h>
 #include <OpenGLApplication.h>
 #include <string>
 #include <opengl.h>
@@ -58,7 +60,6 @@ void DefaultController::draw() {
 }
 
 DefaultController::DefaultController() {
-	m_landscape = new Landscape();
-
-	graphic2DObject = m_landscape->createGraphicRepresentation();
+	CenteredHeightMap* map = LandscapeGenerator::createHeightMap(8);
+	graphic2DObject = LandscapeGenerator::createGraphicRepresentation(*map);
 }

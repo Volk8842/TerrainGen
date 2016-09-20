@@ -3,7 +3,6 @@
 
 #include <Controllers/IController.h>
 #include <Graphic2DObject.h>
-#include <Landscape.h>
 
 class DefaultController: public IController {
 public:
@@ -22,7 +21,6 @@ private:
 	double lastXPos;
 	double lastYPos;
 
-	Landscape* m_landscape;
 	Graphic2DObject* graphic2DObject;
 };
 

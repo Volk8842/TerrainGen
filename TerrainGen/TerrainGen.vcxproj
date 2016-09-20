@@ -73,11 +73,10 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraManager.cpp" />
-    <ClCompile Include="Centered2DHeightMap.cpp" />
+    <ClCompile Include="CenteredHeightMap.cpp" />
     <ClCompile Include="Controllers/DefaultController.cpp" />
     <ClCompile Include="Graphic2DObject.cpp" />
-    <ClCompile Include="Landscape.cpp" />
-    <ClCompile Include="LandscapeSector.cpp" />
+    <ClCompile Include="LandscapeGenerator.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OpenGLApplication.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
@@ -85,13 +84,12 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraManager.h" />
-    <ClInclude Include="Centered2DHeightMap.h" />
+    <ClInclude Include="CenteredHeightMap.h" />
     <ClInclude Include="Debug.h" />
     <ClInclude Include="Controllers/DefaultController.h" />
     <ClInclude Include="Graphic2DObject.h" />
     <ClInclude Include="Controllers/IController.h" />
-    <ClInclude Include="Landscape.h" />
-    <ClInclude Include="LandscapeSector.h" />
+    <ClInclude Include="LandscapeGenerator.h" />
     <ClInclude Include="OpenGLApplication.h" />
     <ClInclude Include="opengl.h" />
     <ClInclude Include="SectorCoords.h" />

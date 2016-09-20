@@ -4,11 +4,11 @@
 #include <string>
 
 Camera::Camera() {
-	m_position = glm::vec3(0.0f, 0.0f, -4.0f);
+	m_position = glm::vec3(0.0f, -4.0f, 1.0f);
 	m_target = glm::vec3(0.0f, 0.0f, 0.0f);
 	m_worldUp = glm::vec3(0.0f, 1.0f, 0.0f);
 	m_yaw = 0.0f;
-	m_pitch = 0.0f;
+	m_pitch = 80.0f;
 	updateCameraVectors();
 }
 

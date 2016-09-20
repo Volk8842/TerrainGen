@@ -36,16 +36,13 @@
     <ClCompile Include="CameraManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Centered2DHeightMap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Graphic2DObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Landscape.cpp">
+    <ClCompile Include="LandscapeGenerator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LandscapeSector.cpp">
+    <ClCompile Include="CenteredHeightMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -74,19 +71,16 @@
     <ClInclude Include="CameraManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Centered2DHeightMap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Graphic2DObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Landscape.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LandscapeSector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SectorCoords.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LandscapeGenerator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CenteredHeightMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

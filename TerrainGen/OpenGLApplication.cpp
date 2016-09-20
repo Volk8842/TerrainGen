@@ -59,7 +59,7 @@ void OpenGLApplication::createOpenGLContext() {
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
-	m_window = glfwCreateWindow(640, 480, "OpenGLApplication", nullptr, nullptr);
+	m_window = glfwCreateWindow(1024, 768, "OpenGLApplication", nullptr, nullptr);
 	glfwMakeContextCurrent(m_window);
 
 	int viewportWidth;
@@ -74,6 +74,8 @@ void OpenGLApplication::createOpenGLContext() {
 	glfwSetScrollCallback(m_window, scroll_callback);
 
 	glfwSetCursorPos(m_window, 320, 240);
+
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 	glewExperimental = GL_TRUE;
 	glewInit();

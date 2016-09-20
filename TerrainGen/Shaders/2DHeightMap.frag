@@ -6,22 +6,26 @@ out vec4 color;
 
 void main()
 {
-//if (height < 0.4f)
-//{
-//	color = vec4(height * 0.8f, height * 0.8f, height * 2.5f, 1.0f);
-//}
-//else if (height < 0.5f)
-//{
-//	color = vec4(height + 0.2f, height + 0.1f, 0.2f, 1.0f);
-//}
-//else if (height < 0.6f)
-//{
-//	color = vec4(0.0f, height - 0.3f, 0.0f, 1.0f);
-//}
-//else if (height < 0.8f)
-//{
-//	color = vec4(height - 0.2f, height - 0.2f, height - 0.2f, 1.0f);
-//}
-//else
-	color = vec4(height, height, height, 1.0f);
+	//float dHeight;
+	//if (height < 0.3f) {
+	//	color = vec4(height * 0.5f, height, height * 3, 1.0f);
+	//}
+	//else if (height < 0.5f) {
+	//	dHeight = height - 0.3f;
+	//	color = vec4(0.1f + dHeight * 2, 0.3f, 0.9f - dHeight * 4, 1.0f);
+	//}
+	//else if (height < 0.6f) {
+	//	dHeight = height - 0.5f;
+	//	color = vec4(0.5f + dHeight * 2, 0.3f + dHeight * 2, 0.1f, 1.0f);
+	//}
+	//else if (height < 0.7f) {
+	//	dHeight = height - 0.6f;
+	//	color = vec4(0.7f - dHeight * 6f, 0.5f - dHeight * 2, 0.1f, 1.0f);
+	//}
+	//else if (height < 0.8f) {
+	//	dHeight = height - 0.7f;
+	//	color = vec4(0.4f + dHeight * 4, 0.4f + dHeight * 4, 0.4f + dHeight * 4, 1.0f);
+	//}
+	//else
+		color = vec4(height, height, height, 1.0f);
 }
