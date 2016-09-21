@@ -11,10 +11,10 @@ CenteredHeightMap* LandscapeGenerator::createHeightMap(int detailRate) {
 	
 	CenteredHeightMap generator(generatorSize);
 	// Set corners of generated sector
-	//generator.setVertex(-sectorHalfWidth, -sectorHalfWidth, getCornerHeight(SectorCoords(coords.x, coords.y)));
-	//generator.setVertex(sectorHalfWidth, -sectorHalfWidth, getCornerHeight(SectorCoords(coords.x + 1, coords.y)));
-	//generator.setVertex(-sectorHalfWidth, sectorHalfWidth, getCornerHeight(SectorCoords(coords.x, coords.y + 1)));
-	//generator.setVertex(sectorHalfWidth, sectorHalfWidth, getCornerHeight(SectorCoords(coords.x + 1, coords.y + 1)));
+	generator.setVertex(-sectorHalfWidth, -sectorHalfWidth, (rand() % 100) / 100.0);
+	generator.setVertex(sectorHalfWidth, -sectorHalfWidth, (rand() % 100) / 100.0);
+	generator.setVertex(-sectorHalfWidth, sectorHalfWidth, (rand() % 100) / 100.0);
+	generator.setVertex(sectorHalfWidth, sectorHalfWidth, (rand() % 100) / 100.0);
 	// Load data from other sectors
 	// TODO: --||--
 	useSquareDiamondAlgorithm(generator, sectorWidth);
@@ -26,7 +26,6 @@ CenteredHeightMap* LandscapeGenerator::createHeightMap(int detailRate) {
 		}
 	}
 	return newHeightMap;
-
 }
 
 void LandscapeGenerator::useSquareDiamondAlgorithm(CenteredHeightMap& generator, int sectorWidth) {
@@ -111,6 +110,34 @@ GLfloat LandscapeGenerator::addVertexDisplacement(GLfloat value, int side, int s
 	else
 		return value + (rand() % (int)((topD + botD) * 10000)) / 10000.0f - (topD + botD) / 2.0;
 }
+
+void LandscapeGenerator::useThermalErrosion(CenteredHeightMap& heightMap, float dTalus) {
+	int width = heightMap.sideWidth();
+	for (int y = -heightMap.halfSideWidth(); y <= heightMap.halfSideWidth(); y++) {
+		for (int x = -heightMap.halfSideWidth(); x <= heightMap.halfSideWidth(); x++) {
+			for (int j = -1; j <= 1; j += 2) {
+				if (y + j >= -heightMap.halfSideWidth() && y + j <= heightMap.halfSideWidth()) {
+					for (int i = -1; i <= 1; i += 2) {
+						if (x + i >= -heightMap.halfSideWidth() && x + i <= heightMap.halfSideWidth()) {
+							float dHeight = heightMap.vertex(x, y) - heightMap.vertex(x + i, y + j);
+							if (dHeight > dTalus) {
+								float d = (dHeight - dTalus) / 2.0f;
+								float o1 = heightMap.vertex(x, y);
+								float o2 = heightMap.vertex(x + i, y + j);
+								heightMap.setVertex(x, y, heightMap.vertex(x, y) - d);
+								heightMap.setVertex(x + i, y + j, heightMap.vertex(x + i, y + j) + d);
+								o1 = heightMap.vertex(x, y);
+								o2 = heightMap.vertex(x + i, y + j);
+								bool tr = true;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 
 std::vector<GLfloat>* LandscapeGenerator::generateVertices(CenteredHeightMap& heightMap) {
 	int heightMapSize = heightMap.sideWidth() * heightMap.sideWidth();

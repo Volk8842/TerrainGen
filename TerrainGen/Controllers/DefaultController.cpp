@@ -1,7 +1,6 @@
 
 #include <Controllers/DefaultController.h>
 #include <LandscapeGenerator.h>
-#include <CenteredHeightMap.h>
 #include <OpenGLApplication.h>
 #include <string>
 #include <opengl.h>
@@ -55,11 +54,17 @@ void DefaultController::onScroll(GLFWwindow* window, double xoffset, double yoff
 }
 
 void DefaultController::draw() {
+	static int timer = 0;
+	if (timer < 60) timer++;
+	else {
+		timer = 0;
+		LandscapeGenerator::useThermalErrosion(*map, 0.5f / map->halfSideWidth());
+	}
+	graphic2DObject = LandscapeGenerator::createGraphicRepresentation(*map);
 	graphic2DObject->prepareToRender();
 	graphic2DObject->render();
 }
 
 DefaultController::DefaultController() {
-	CenteredHeightMap* map = LandscapeGenerator::createHeightMap(8);
-	graphic2DObject = LandscapeGenerator::createGraphicRepresentation(*map);
+	map = LandscapeGenerator::createHeightMap(5);
 }

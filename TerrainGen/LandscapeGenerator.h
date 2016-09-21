@@ -12,6 +12,8 @@ public:
 	static CenteredHeightMap* createHeightMap(int detailRate);
 	static Graphic2DObject* createGraphicRepresentation(CenteredHeightMap& heightMap);
 
+	static void useThermalErrosion(CenteredHeightMap& heightMap, float dTalus);
+
 private:
 	static void useSquareDiamondAlgorithm(CenteredHeightMap& generator, int sectorWidth);
 	static void useSquareStep(CenteredHeightMap& generator, int x, int y, int side, int sectorWidth);

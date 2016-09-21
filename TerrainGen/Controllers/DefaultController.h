@@ -3,6 +3,7 @@
 
 #include <Controllers/IController.h>
 #include <Graphic2DObject.h>
+#include <CenteredHeightMap.h>
 
 class DefaultController: public IController {
 public:
@@ -21,6 +22,7 @@ private:
 	double lastXPos;
 	double lastYPos;
 
+	CenteredHeightMap* map;
 	Graphic2DObject* graphic2DObject;
 };
 
