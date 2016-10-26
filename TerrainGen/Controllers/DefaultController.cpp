@@ -58,13 +58,14 @@ void DefaultController::draw() {
 	if (timer < 60) timer++;
 	else {
 		timer = 0;
-		LandscapeGenerator::useThermalErrosion(*map, 0.5f / map->halfSideWidth());
+//		LandscapeGenerator::useThermalErrosion(*map, 0.5f / map->halfSideWidth());
 	}
-	graphic2DObject = LandscapeGenerator::createGraphicRepresentation(*map);
-	graphic2DObject->prepareToRender();
 	graphic2DObject->render();
 }
 
 DefaultController::DefaultController() {
-	map = LandscapeGenerator::createHeightMap(5);
+	map = LandscapeGenerator::createHeightMap(8);
+	graphic2DObject = LandscapeGenerator::createGraphicRepresentation(*map);
+	graphic2DObject->prepareToRender();
+	
 }
