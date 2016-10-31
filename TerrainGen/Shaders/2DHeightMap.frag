@@ -17,31 +17,11 @@ vec4 colored(float r1, float g1, float b1, float r2, float g2, float b2, float d
 
 void main()
 {
-	float dHeight;
-	if (height < 0.3f) {
-		color = colored(0.0f, 0.0f, 0.0f, 0.4f, 0.6f, 0.9f, 0.3f, height);
+	if (height > 0) {
+		color = vec4(0, height + 0.2f , 0, 1.0f);
+	} else {
+		color = vec4(0, -height + 0.2f, 0, 1.0f);
 	}
-	else if (height < 0.4f) {
-		dHeight = height - 0.3f;
-		color = colored(0.5f, 0.3f, 0.1f, 0.7f, 0.5f, 0.1f, 0.1f, dHeight);
-	}
-	else if (height < 0.5f) {
-		dHeight = height - 0.4f;
-		color = colored(0.7f, 0.5f, 0.1f, 0.1f, 0.3f, 0.1f, 0.1f, dHeight);
-	}
-	else if (height < 0.6f) {
-		dHeight = height - 0.5f;
-		color = colored(0.1f, 0.3f, 0.1f, 0.2f, 0.5f, 0.1f, 0.1f, dHeight);
-	}
-	else if (height < 0.7f) {
-		dHeight = height - 0.6f;
-		color = colored(0.2f, 0.5f, 0.1f, 0.2f, 0.2f, 0.2f, 0.1f, dHeight);
-	}
-	else if (height < 0.8f) {
-		dHeight = height - 0.7f;
-		color = colored(0.2f, 0.2f, 0.2f, 0.5f, 0.5f, 0.5f, 0.1f, dHeight);
-	}
-	else
-		color = vec4(height, height, height, 1.0f);
+
 }
 

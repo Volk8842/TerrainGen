@@ -1,6 +1,6 @@
 
 #include <Controllers/DefaultController.h>
-#include <LandscapeGenerator.h>
+#include <SphereGenerator.h>
 #include <OpenGLApplication.h>
 #include <string>
 #include <opengl.h>
@@ -64,8 +64,8 @@ void DefaultController::draw() {
 }
 
 DefaultController::DefaultController() {
-	map = LandscapeGenerator::createHeightMap(8);
-	graphic2DObject = LandscapeGenerator::createGraphicRepresentation(*map);
+	//map = LandscapeGenerator::createHeightMap(8);
+	graphic2DObject = SphereGenerator::createGraphicRepresentation();
 	graphic2DObject->prepareToRender();
 	
 }

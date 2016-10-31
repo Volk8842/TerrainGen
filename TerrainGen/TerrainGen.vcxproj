@@ -80,6 +80,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OpenGLApplication.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
+    <ClCompile Include="SphereGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -94,6 +95,7 @@
     <ClInclude Include="opengl.h" />
     <ClInclude Include="SectorCoords.h" />
     <ClInclude Include="ShaderProgram.h" />
+    <ClInclude Include="SphereGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\2DHeightMap.frag" />
