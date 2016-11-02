@@ -17,11 +17,6 @@ vec4 colored(float r1, float g1, float b1, float r2, float g2, float b2, float d
 
 void main()
 {
-	if (height > 0) {
-		color = vec4(0, height + 0.2f , 0, 1.0f);
-	} else {
-		color = vec4(0, -height + 0.2f, 0, 1.0f);
-	}
-
+		color = vec4(height, height, height, 1.0f);
 }
 
