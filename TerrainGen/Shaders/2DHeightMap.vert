@@ -7,11 +7,11 @@ uniform mat4 scale;
 uniform mat4 view;
 uniform mat4 projection;
 
-out float height;
+out vec3 outPosition;
 
 void main()
 {
 	vec4 model = translation * rotation * scale * vec4(position.xyz, 1.0f);
     gl_Position = projection * view * model;
-	height = position.w;
+	outPosition = position.xyz;
 }

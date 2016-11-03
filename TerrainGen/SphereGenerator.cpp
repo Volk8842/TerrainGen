@@ -27,8 +27,9 @@ Graphic2DObject* SphereGenerator::createGraphicRepresentation() {
 	for (int i = 0; i < vertexCount.size(); i++) {
 		double alpha = pi / 2 - dAlpha * i;
 		double dBetta = vertexCount[i] > 1 ? pi * 2 / vertexCount[i] : 0;
+		bool isMid = i == 3 ? true : false;
 		for (int j = 0; j < vertexCount[i]; j++) {
-			massVertices->push_back(new SphereVertex(cos(alpha) * sin(dBetta * j), sin(alpha), cos(alpha) * cos(dBetta * j), 1.0f));
+			massVertices->push_back(new SphereVertex(cos(alpha) * sin(dBetta * (j - 0.5 * isMid)), sin(alpha), cos(alpha) * cos(dBetta * (j - 0.5 * isMid)), 1.0f));
 		}
 	}
 

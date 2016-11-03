@@ -1,22 +1,13 @@
 #version 330 core
 
-in float height;
+in vec3 outPosition;
 
 out vec4 color;
 
-float col(float a, float b, float dHeight, float dX) {
-	return a + (b - a) / dHeight * dX;
-}
-
-vec4 colored(float r1, float g1, float b1, float r2, float g2, float b2, float dHeight, float dX) {
-	return vec4(col(r1, r2, dHeight, dX),
-				col(g1, g2, dHeight, dX),
-				col(b1, b2, dHeight, dX),
-				1.0f);
-}
-
 void main()
 {
-		color = vec4(height, height, height, 1.0f);
+    float height = sqrt(outPosition.x * outPosition.x + outPosition.y * outPosition.y + outPosition.z * outPosition.z);
+	height = (height * 100 - 90) / 10;
+	color = vec4(height, height, height, 1.0f);
 }
 
